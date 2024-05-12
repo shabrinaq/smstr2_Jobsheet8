@@ -7,7 +7,7 @@ public class Queue21 {
     int size;
     int front;
     int rear;
-    int[] Q;
+    Passengers21[] Q;
 
     public Queue21(int n) {
         max = n;
@@ -15,7 +15,7 @@ public class Queue21 {
     }
 
     public void Create() {
-        Q = new int[max];
+        Q = new Passengers21[max];
         size = 0;
         front = rear = -1;
     }
@@ -38,7 +38,9 @@ public class Queue21 {
 
     public void peek() {
         if (!IsEmpty()) {
-            System.out.println("The first element : " + Q[front]);
+            System.out.println("The first element : " + Q[front].name + " "
+            + Q[front].cityOrigin + " " + Q[front].cityDestination + " " + 
+            Q[front].ticketAmount + " " + Q[front].price);
         } else {
             System.out.println("Queue is still empty");
         }
@@ -50,7 +52,9 @@ public class Queue21 {
         } else {
             int i = front;
             while (i != rear) {
-                System.out.println(Q[i] + " ");
+                System.out.println("The first element : " + Q[front].name + " "
+                + Q[front].cityOrigin + " " + Q[front].cityDestination + " " +
+                Q[front].ticketAmount + " " + Q[front].price);
                 i = (i+1) % max;
             }
             System.out.println( Q[i] + " ");
@@ -68,7 +72,7 @@ public class Queue21 {
         }
     }
 
-    public void Enqueue(int data) {
+    public void Enqueue(Passengers21 data) {
         if (IsFull()) {
             System.out.println("Queue is already full");
         } else {
@@ -86,8 +90,8 @@ public class Queue21 {
         size++;
     }
 
-    public int Dequeue() {
-        int data = 0;
+    public Passengers21 Dequeue() {
+        Passengers21 data = new Passengers21("", "", "", 0, 0);
         if (IsEmpty()) {
             System.out.println("Queue is still empty");
         } else {
