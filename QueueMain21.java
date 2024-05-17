@@ -19,33 +19,31 @@ public class QueueMain21 {
             choose = sc.nextInt();
             switch (choose) {
                 case 1:
-                   System.out.print("Name: ");
-                   String nm = sc.nextLine();
+                   System.out.print("NIM: ");
+                   String nim = sc.nextLine();
                    sc.nextLine();
-                   System.out.print("City Origin: ");
-                   String cOrg = sc.nextLine();
-                   System.out.print("City Destination: ");
-                   String cDes = sc.nextLine();
-                   System.out.print("ticket Amount: ");
-                   int ticket = sc.nextInt();
-                   System.out.print("Price: ");
-                   int price = sc.nextInt();
+                   System.out.print("Name: ");
+                   String name = sc.nextLine();
+                   System.out.print("Class Number: ");
+                   int classNumber = sc.nextInt();
+                   System.out.print("GPA: ");
+                   double gpa = sc.nextDouble();
                    sc.nextLine();
 
-                   Passengers21 p = new Passengers21(nm, cOrg, cDes, ticket, price);
+                   Student21 p = new Student21(nim, name, classNumber, gpa);
                    sc.nextLine();
 
                    queuePassenger.Enqueue(p);
                     break;
                 case 2:
-                    Passengers21 data = queuePassenger.Dequeue();
-                    if (!"".equals(data.name) && !"".equals(data.cityOrigin) &&
-                            !"".equals(data.cityDestination) && !"".equals(data.ticketAmount)
-                            && !"".equals(data.price)) {
-                        System.out.println("Data removed : " + data.name + " " + data.cityOrigin
-                        + " " + data.cityDestination + " " + data.ticketAmount + " " + data.price);
-                        break;
+                    Student21 data = queuePassenger.Dequeue();
+                    if (data != null) {
+                        System.out.println("Data removed : " + data.name + " " + data.nim
+                        + " " + data.name + " " + data.classNumber + " " + data.gpa);
+                    } else {
+                        System.out.println("Queue is empty");
                     }
+                        break;
                 case 3:
                     queuePassenger.print();
                     break;
@@ -54,9 +52,6 @@ public class QueueMain21 {
                     break;
                 case 5:
                     queuePassenger.peekRear();
-                    break;
-                case 6:
-                    queuePassenger.clear();
                     break;
             }
         } while (choose <= 5 && choose >= 1);
@@ -69,8 +64,6 @@ public class QueueMain21 {
         System.out.println("3. Check first queue");
         System.out.println("4. Check all queue");
         System.out.println("5. Check last queue");
-        System.out.println("6. Clear queue");
         System.out.println("==========================");
     }
-
 }

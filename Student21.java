@@ -1,7 +1,12 @@
 /**
- * Queue21
+ * Student21
  */
-public class Queue21 {
+public class Student21 {
+
+    String nim;
+    String name;
+    int classNumber;
+    double gpa;
 
     int max;
     int size;
@@ -9,7 +14,14 @@ public class Queue21 {
     int rear;
     Student21[] stdQueue;
 
-    public Queue21(int n) {
+    public Student21(String nim, String name, int classNumber, double gpa) {
+        this.nim = nim;
+        this.name = name;
+        this.classNumber = classNumber;
+        this.gpa = gpa;
+    }
+
+    public Student21(int n) {
         max = n;
         Create();
     }
