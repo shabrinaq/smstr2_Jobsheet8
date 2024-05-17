@@ -53,10 +53,13 @@ public class QueueMain21 {
                     queuePassenger.peek();
                     break;
                 case 5:
+                    queuePassenger.peekRear();
+                    break;
+                case 6:
                     queuePassenger.clear();
                     break;
             }
-        } while (choose <= 4 && choose >= 1);
+        } while (choose <= 5 && choose >= 1);
     }
 
     public static void menu() {
@@ -65,6 +68,8 @@ public class QueueMain21 {
         System.out.println("2. Dequeue");
         System.out.println("3. Check first queue");
         System.out.println("4. Check all queue");
+        System.out.println("5. Check last queue");
+        System.out.println("6. Clear queue");
         System.out.println("==========================");
     }
 
